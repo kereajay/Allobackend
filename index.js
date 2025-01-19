@@ -30,6 +30,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5174",
       "https://alloadmin.vercel.app",
+      "https://allofrontend.vercel.app/"
     ],
     credentials: true,
   })
