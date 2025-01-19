@@ -5,10 +5,10 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
 const { v2: cloudinary } = require("cloudinary");
-const {errorHandler,notfound}=require('./Middleware/Error')
+const { errorHandler, notfound } = require("./Middleware/Error");
 
-const UserRouter=require('./Routes/User')
-const AppointmentRouter=require('./Routes/Appointmnet')
+const UserRouter = require("./Routes/User");
+const AppointmentRouter = require("./Routes/Appointmnet");
 
 dotenv.config();
 const app = express();
@@ -26,7 +26,11 @@ cloudinary.config({
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://alloadmin.vercel.app",
+    ],
     credentials: true,
   })
 );
@@ -40,8 +44,8 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-app.use('/api/v1/user',UserRouter);
-app.use('/api/v1/apoointment',AppointmentRouter)
-app.use(errorHandler)
-app.use(notfound)
-app.listen(9000, console.log("server is live 9000" ));
+app.use("/api/v1/user", UserRouter);
+app.use("/api/v1/apoointment", AppointmentRouter);
+app.use(errorHandler);
+app.use(notfound);
+app.listen(9000, console.log("server is live 9000"));
